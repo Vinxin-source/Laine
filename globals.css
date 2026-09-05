@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F9F7F4;
+  --surface: #FFFFFF;
+  --primary: #4A5D4E;
+  --primary-soft: #E8EEE9;
+  --accent: #C48B6C;
+  --text-primary: #1C1C1A;
+  --text-secondary: #6B6560;
+  --border: #E8E4DF;
+  --success: #5F7A65;
+  --danger: #B85C5C;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-soft: 0 1px 2px rgba(28, 28, 26, 0.04), 0 8px 24px rgba(28, 28, 26, 0.04);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-primary: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-accent: var(--accent);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-danger: var(--danger);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-serif), "Instrument Serif", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle professional motion */
+@keyframes laine-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes laine-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes laine-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-up {
+  animation: laine-fade-up 0.45s var(--ease-out) both;
+}
+
+.animate-fade-in {
+  animation: laine-fade-in 0.35s var(--ease-out) both;
+}
+
+.animate-scale-in {
+  animation: laine-scale-in 0.4s var(--ease-out) both;
+}
+
+.stagger-1 {
+  animation-delay: 0.05s;
+}
+.stagger-2 {
+  animation-delay: 0.1s;
+}
+.stagger-3 {
+  animation-delay: 0.15s;
+}
+.stagger-4 {
+  animation-delay: 0.2s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-scale-in {
+    animation: none;
+  }
+}
+
+/* Typography helpers */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
